@@ -1,0 +1,298 @@
+/* ==========================================================================
+   CUSTOM PROPERTIES
+   ========================================================================== */
+:root {
+  /* Color */
+  --color-bg: #f6f5f6;
+  --color-Purple-50: hsl(260, 100%, 95%);
+  --color-Purple-300: hsl(264, 82%, 80%);
+  --color-Purple-500: hsl(263, 55%, 52%);
+
+  /* ### Neutral */
+  --color-Grey-100: hsl(214, 17%, 92%);
+  --color-Grey-200: hsl(0, 0%, 81%);
+  --color-Grey-400: hsl(224, 10%, 45%);
+  --color-Grey-500: hsl(217, 19%, 35%);
+
+  --color-Dark-blue: hsl(219, 29%, 14%);
+  --color-White: hsl(0, 0%, 100%);
+  --color-Black: hsl(0, 0%, 7%);
+
+  /* Typography */
+  --font-primary: "Barlow Semi Condensed", sans-serif;
+  --font-size-base: clamp(0.8125rem, 0.769rem + 0.2174vw, 0.9375rem);
+
+  /* Spacing */
+  --space-500: 40px;
+  --space-400: 32px;
+  --space-300: 24px;
+  --space-200: 16px;
+  --space-100: 8px;
+  --space-50: 4px;
+
+  /* Border */
+
+  /* Border Radius */
+  --border-radius-base: 8px;
+
+  /* Box Shadow */
+  --shadow-basic: 40px 60px 50px -47px rgba(72, 85, 106, 0.24);
+
+  /* Transitions */
+}
+
+/* ==========================================================================
+   RESET & BASIC
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: var(--space-300) var(--space-200);
+
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  line-height: 1.4;
+
+  background: var(--color-bg);
+}
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
+@font-face {
+  font-family: "Barlow Semi Condensed";
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/Fonts/BarlowSemiCondensed-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Barlow Semi Condensed";
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/Fonts/BarlowSemiCondensed-SemiBold.ttf);
+}
+
+/* ==========================================================================
+   COMPONENTS
+   ========================================================================== */
+
+/* Card Component
+   -------------------------------------------------------------------------- */
+main {
+  display: grid;
+  gap: var(--space-400);
+  width: 100%;
+  max-width: 1110px;
+}
+
+/* Card Component
+   -------------------------------------------------------------------------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--space-200);
+  padding: var(--space-400);
+
+  background-color: var(--color-White);
+  border-radius: var(--border-radius-base);
+  box-shadow: var(--shadow-basic);
+
+  & .card__profile {
+    display: flex;
+    gap: var(--space-200);
+    align-items: center;
+  }
+
+  & .card__profile-avatar {
+    width: 28px;
+    height: 28px;
+    outline: 2px solid #a775f1;
+    border-radius: 50%;
+  }
+
+  & .card__profile-name {
+    font-size: var(--font-size-base);
+    line-height: 1.1;
+  }
+
+  & .card__profile-state {
+    font-size: clamp(0.6771rem, 0.6517rem + 0.1268vw, 0.75rem);
+    line-height: 1.1;
+  }
+
+  & .card__title {
+    font-size: clamp(1.404rem, 1.2555rem + 0.7427vw, 1.8311rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  & .card__blockquote {
+    font-size: var(--font-size-base);
+    line-height: 1.4;
+  }
+
+  & .card__blockquote::before {
+    content: '" ';
+  }
+  & .card__blockquote::after {
+    content: ' "';
+  }
+}
+
+.card[data-card-style="purple"] {
+  background-color: var(--color-Purple-500);
+  background-image: url(images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: top 0 right 24px;
+  color: var(--color-White);
+
+  & .card__profile-state {
+    color: var(--color-Purple-50);
+  }
+
+  & .card__blockquote {
+    color: var(--color-Purple-50);
+  }
+}
+
+.card[data-card-style="grey"] {
+  background-color: var(--color-Grey-500);
+  color: var(--color-White);
+
+  & .card__profile-state {
+    color: var(--color-Grey-200);
+  }
+
+  & .card__blockquote {
+    color: var(--color-Grey-100);
+  }
+}
+
+.card[data-card-style="white"] {
+  background-color: var(--color-White);
+  color: var(--color-Grey-500);
+
+  & .card__profile-state {
+    color: var(--color-Grey-400);
+  }
+
+  & .card__blockquote {
+    color: var(--color-Grey-400);
+  }
+}
+
+.card[data-card-style="blue"] {
+  background-color: var(--color-Dark-blue);
+  color: var(--color-White);
+
+  & .card__profile-state {
+    color: var(--color-White);
+  }
+
+  & .card__blockquote {
+    color: var(--color-Grey-100);
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+
+@media screen and (min-width: 48em) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card[data-card-style="purple"] {
+    background-position: top 0 right 80px;
+  }
+
+  .card[data-card-style="purple"],
+  .card[data-card-style="blue"],
+  .card[data-card-style="white"]:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (min-width: 90em) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card[data-card-style="white"]:last-child {
+    grid-area: 1 / 4 / span 2;
+  }
+}
