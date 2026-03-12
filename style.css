@@ -150,7 +150,7 @@ body {
 
 /* Card Component
    -------------------------------------------------------------------------- */
-main {
+.content {
   display: grid;
   gap: var(--space-400);
   width: 100%;
@@ -162,54 +162,56 @@ main {
 .card {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: var(--space-200);
   padding: var(--space-400);
 
   background-color: var(--color-White);
   border-radius: var(--border-radius-base);
   box-shadow: var(--shadow-basic);
+}
 
-  & .card__profile {
-    display: flex;
-    gap: var(--space-200);
-    align-items: center;
-  }
+.card__profile {
+  display: flex;
+  gap: var(--space-200);
+  align-items: center;
+}
 
-  & .card__profile-avatar {
-    width: 28px;
-    height: 28px;
-    outline: 2px solid #a775f1;
-    border-radius: 50%;
-  }
+.card__profile-avatar {
+  width: 1.75rem;
+  height: 1.75rem;
+  outline: 0.125rem solid #a775f1;
+  border-radius: 50%;
+}
 
-  & .card__profile-name {
-    font-size: var(--font-size-base);
-    line-height: 1.1;
-  }
+.card__profile-name {
+  display: block;
+  font-size: var(--font-size-base);
+  line-height: 1.1;
+}
 
-  & .card__profile-state {
-    font-size: clamp(0.6771rem, 0.6517rem + 0.1268vw, 0.75rem);
-    line-height: 1.1;
-  }
+.card__profile-state {
+  font-size: clamp(0.6771rem, 0.6517rem + 0.1268vw, 0.75rem);
+  line-height: 1.1;
+}
 
-  & .card__title {
-    font-size: clamp(1.404rem, 1.2555rem + 0.7427vw, 1.8311rem);
-    font-weight: 600;
-    line-height: 1.2;
-  }
+.card__title {
+  font-size: clamp(1.404rem, 1.2555rem + 0.7427vw, 1.8311rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
 
-  & .card__blockquote {
-    font-size: var(--font-size-base);
-    line-height: 1.4;
-  }
+.card__blockquote {
+  font-size: var(--font-size-base);
+  line-height: 1.4;
+}
 
-  & .card__blockquote::before {
-    content: '" ';
-  }
-  & .card__blockquote::after {
-    content: ' "';
-  }
+.card__blockquote::before {
+  content: '" ';
+}
+
+.card__blockquote::after {
+  content: ' "';
 }
 
 .card[data-card-style="purple"] {
@@ -218,61 +220,60 @@ main {
   background-repeat: no-repeat;
   background-position: top 0 right 24px;
   color: var(--color-White);
+}
 
-  & .card__profile-state {
-    color: var(--color-Purple-50);
-  }
+.card[data-card-style="purple"] > .card__profile-state {
+  color: var(--color-Purple-50);
+}
 
-  & .card__blockquote {
-    color: var(--color-Purple-50);
-  }
+.card[data-card-style="purple"] > .card__blockquote {
+  color: var(--color-Purple-50);
 }
 
 .card[data-card-style="grey"] {
   background-color: var(--color-Grey-500);
   color: var(--color-White);
+}
 
-  & .card__profile-state {
-    color: var(--color-Grey-200);
-  }
+.card[data-card-style="grey"] > .card__profile-state {
+  color: var(--color-Grey-200);
+}
 
-  & .card__blockquote {
-    color: var(--color-Grey-100);
-  }
+.card[data-card-style="grey"] > .card__blockquote {
+  color: var(--color-Grey-100);
 }
 
 .card[data-card-style="white"] {
   background-color: var(--color-White);
   color: var(--color-Grey-500);
+}
 
-  & .card__profile-state {
-    color: var(--color-Grey-400);
-  }
+.card[data-card-style="white"] > .card__profile-state {
+  color: var(--color-Grey-400);
+}
 
-  & .card__blockquote {
-    color: var(--color-Grey-400);
-  }
+.card[data-card-style="white"] > .card__blockquote {
+  color: var(--color-Grey-400);
 }
 
 .card[data-card-style="blue"] {
   background-color: var(--color-Dark-blue);
   color: var(--color-White);
-
-  & .card__profile-state {
-    color: var(--color-White);
-  }
-
-  & .card__blockquote {
-    color: var(--color-Grey-100);
-  }
 }
 
+.card[data-card-style="blue"] > .card__profile-state {
+  color: var(--color-White);
+}
+
+.card[data-card-style="blue"] > .card__blockquote {
+  color: var(--color-Grey-100);
+}
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
 
 @media screen and (min-width: 48em) {
-  main {
+  .content {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -288,7 +289,7 @@ main {
 }
 
 @media screen and (min-width: 90em) {
-  main {
+  .content {
     grid-template-columns: repeat(4, 1fr);
   }
 
